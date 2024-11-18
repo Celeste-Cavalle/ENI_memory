@@ -1,31 +1,30 @@
 window.onload = init;
 
-// let password = document.getElementById("mdp").value;
-
-
 function init() {
-localStorage.setItem("mdp", "azer");
-let mdp =localStorage.getItem("mdp")
-console.log(password);
-    // let taille =password.length;
-        
-    function testPass() {
-            let taille =password.length;
-            var chiffre = new RegExp("[0-9]","gi");
-            var special = new RegExp("[^a-zA-Z0-9]","gi");
-            
-            if (taille<6) {
-                return "Faible";
-            }
 
-            if (chiffre.test(password) || special.test(password) && taille >6) {
-                    return "Moyen";
-            }
+  document.getElementById("password_field").addEventListener("keypress", testPass);
+  // localStorage.setItem("mdp", "azerty");
+  // let result = testPass(localStorage.getItem("mdp"));
+  // console.log(result);
+  
+}
+function testPass() {
+    let mdp = document.getElementById("password_field").value;
+    console.log("valeur motdepasse " + mdp);
+    let taille = mdp.length;
+    var chiffre = new RegExp("[0-9]", "gi");
+    var special = new RegExp("[^a-zA-Z0-9]", "gi");
 
-            if (chiffre.test(password) && special.test(password) && taille>6) {
-                    return "Fort";
-            }
-            
+    if (chiffre.test(mdp) && special.test(mdp) && taille > 6) {
+      // TODO affecter le truc visuel qui dit ce qu'est le mdp  fort   
+      
+    }
+
+    if (chiffre.test(mdp) || (special.test(mdp) && taille > 6)) {
+      // TODO affecter le truc visuel qui dit ce qu'est le mdp  moyen
+      
+    }
+    // TODO affecter le truc visuel qui dit ce qu'est le mdp faible 
     
-}
-}
+   
+  }
