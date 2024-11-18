@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inscription</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="formInscription" href="formInscription.js" />
+</head>
+<body>
+    <header>
+        <h1 id="titre">ENI Memory</h1>
+  
+        <nav class="navbar">
+          <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#"></a> -->
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html"
+                    >Accueil</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="inscription.html">S'inscrire</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="connexion.html">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="profil.html">Profil</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="play.html">Jouer</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section class="sectionForm">
+            <fieldset>
+                <legend>Inscription</legend>
+            
+                <form action="" method="post">
+                    <div>
+                        <label for="nom" class="lbl">Nom d'utilisateur* : </label>
+                        <input type="text" name="nom" id="nom" placeholder="ex. : Dupond" required autofocus 
+                        title="Renseigner votre nom d'utilisateur de minimun 3 caractères" pattern="[a-zA-Z0-9]{3,}">
+                    </div>
+                    <div>
+                        <label for="email" class="lbl">Adresse mail* : </label>
+                        <input type="email" name="email" id="email" placeholder="dupond.jansen@yahoo.fr" 
+                        required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    </div>
+                    <div>
+                        <label for="mdp" class="lbl">Mot de passe* : </label>
+                        <input type="password" name="mdp" id="mdp" required 
+                        title="Renseignez un mot de passe (min. 6 caractères dont au moins 1 symbole et 1 chiffre)" 
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
+                    </div>
+                    <div>
+                        <label for="mdpVerif" class="lbl">Vérif. mot de passe* : </label>
+                        <input type="password" name="mdpVerif" id="mdpVerif" required 
+                        title="Renseignez un mot de passe (min. 6 caractères dont au moins 1 symbole et 1 chiffre)" 
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
+                    </div>
+                    <div class="btnForm">
+                        <input type="submit" value="Création du compte" class="btn">
+                        <input type="reset" value="Annuler la saisie" class="btn"> 
+                    </div>
+                    <div class="information">
+                        * Champs obligatoire
+                    </div>
+                </form>
+            </fieldset>
+      </main>
+    
+</body>
+</html>
