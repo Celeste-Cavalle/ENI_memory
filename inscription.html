@@ -10,14 +10,10 @@
 </head>
 <body>
     <header>
-        <h1 id="titre">ENI Memory</h1>
+        <h1 id="titre">ENI Memory | Inscription</h1>
   
         <nav class="navbar">
           <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#"></a> -->
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button> -->
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
@@ -57,29 +53,34 @@
                     <div>
                         <label for="email" class="lbl">Adresse mail* : </label>
                         <input type="email" name="email" id="email" placeholder="dupond.jansen@yahoo.fr" 
-                        required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        required>
                     </div>
                     <div>
                         <label for="mdp" class="lbl">Mot de passe* : </label>
                         <input type="password" name="mdp" id="password_field" required 
                         title="Renseignez un mot de passe (min. 6 caractères dont au moins 1 symbole et 1 chiffre)" 
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
+                        pattern="(?=.*[0-9])(?=.*[A-Z])(?=.*\W).{8,}"
+                        autocomplete="new-password">
+                        <!-- <div class="power-container">
+                          <div id="power-point"></div> -->
                     </div>
                     <div>
                         <label for="mdpVerif" class="lbl">Vérif. mot de passe* : </label>
                         <input type="password" name="mdpVerif" id="mdpVerif" required 
                         title="Renseignez un mot de passe (min. 6 caractères dont au moins 1 symbole et 1 chiffre)" 
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
+                        pattern="(?=.*[0-9])(?=.*[A-Z])(?=.*\W).{8,}"
+                        autocomplete="current-password">
                     </div>
                     <div class="btnForm">
-                        <input type="submit" value="Création du compte" class="btn">
-                        <input type="reset" value="Annuler la saisie" class="btn"> 
+                       <input type="submit" value="Création du compte" class="btn" id="btn_validation">
+                       <input type="reset" value="Annuler la saisie" class="btn"> 
                     </div>
                     <div class="information">
                         * Champs obligatoire
                     </div>
                 </form>
             </fieldset>
+         
       </main>
     
 </body>

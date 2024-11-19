@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENI Memory | Se connecter</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="formConnexion.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 id="titre">ENI Memory | Se connecter </h1>
+    <nav class="navbar">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html"
+              >Accueil</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inscription.html">S'inscrire</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="connexion.html">Se connecter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profil.html">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="play.html">Jouer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+    </header>   
+
+    <main>
+        <section class="sectionForm">
+            <fieldset>
+                <legend>Inscription</legend>
+            
+                <form action="" method="post">
+                    <div>
+                        <label for="email" class="lbl">Adresse mail : </label>
+                        <input type="email" name="email" id="email" placeholder="dupond.jansen@yahoo.fr" 
+                        required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    </div>
+                    <div>
+                        <label for="mdp" class="lbl">Mot de passe : </label>
+                        <input type="password" name="mdp" id="password_field" required 
+                        title="Renseignez un mot de passe (min. 6 caractères dont au moins 1 symbole et 1 chiffre)" 
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
+                    </div>
+                   
+                    <div class="information">
+                        
+                    </div>
+                </form>
+            </fieldset>
+              <div class="btnForm">
+                <input type="submit" value="Se Connecter" class="btn">
+                <input type="reset" value="Annuler " class="btn"> 
+             </div>
+      </main>    
+
+</body>
+
+</html>
