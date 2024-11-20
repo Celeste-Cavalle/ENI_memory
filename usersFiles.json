@@ -1,5 +1,7 @@
-{
-    "name": "Cavalle",
-    "mail": "cavalle@hotmail.fr",
-    "password": "Azerty789!:)"
-}
+[
+    {
+        "name": "Cavalle",
+        "mail": "cavalle@hotmail.fr",
+        "password": "Azerty789!:)"
+    }
+]

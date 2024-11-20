@@ -7,13 +7,13 @@ function init() {
     .getElementById("btn_validation")
     .addEventListener("click", validation);
   //TEST
-  let test = {
-    name: "Molecule Man",
-    age: 29,
-    secretIdentity: "Dan Jukes",
-    powers: ["Radiation resistance", "Turning tiny", "Radiation blast"],
-  };
-  console.log(test["age"]);
+  // let test = {
+  //   name: "Molecule Man",
+  //   age: 29,
+  //   secretIdentity: "Dan Jukes",
+  //   powers: ["Radiation resistance", "Turning tiny", "Radiation blast"],
+  // };
+  // console.log(test["age"]);
 }
 
 function samePass() {
@@ -43,12 +43,10 @@ function testPass() {
 }
 
 function validation(event) {
-  /*samePass() 
-    testPass(); */
   event.preventDefault(); //pour eviter que le btn Submit nous embete, ne pas oublier le "event" dans les ()
   console.log("init");
 
-  //Déclaration des variables et push ds localstorage
+  //Déclaration des variables et push ds localstorage (mettre .value aps les getEltById car c'est cette valeur la qu'on veut et non toute les valeurs des balises)
   let userName = document.getElementById("nom").value;
   console.log(userName);
   let adressMail = document.getElementById("email").value;
@@ -59,4 +57,33 @@ function validation(event) {
   localStorage.setItem("mail", adressMail);
   localStorage.setItem("password", mdp);
   localStorage.setItem("secondPassword", verfiPassword);
+
+  localStorage.setItem("name", JSON.stringify(userName));
+  localStorage.setItem("mail", JSON.stringify(adressMail));
+  localStorage.setItem("password", JSON.stringify(mdp));
+
+const storeIdData = localStorage.getItem("name");
+  if (storeIdData) {
+    const userObject= JSON.parse(storeIdData);
+    console.log(userObject);
+    console.log(userObject.mail);
+  } else {
+    console.log("Aucune donnée trouvée dans le localStorage")
+  }
+
 }
+
+
+//Est ce que c'est utile ? pas certaine 
+// function connexion() {
+//   fetch("usersFiles.json")
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Erreur HTTP : " + response.status);
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//     });
+// }
