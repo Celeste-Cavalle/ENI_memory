@@ -6,14 +6,7 @@ function init() {
   document
     .getElementById("btn_validation")
     .addEventListener("click", validation);
-  //TEST
-  // let test = {
-  //   name: "Molecule Man",
-  //   age: 29,
-  //   secretIdentity: "Dan Jukes",
-  //   powers: ["Radiation resistance", "Turning tiny", "Radiation blast"],
-  // };
-  // console.log(test["age"]);
+  
 }
 
 function samePass() {
@@ -47,43 +40,31 @@ function validation(event) {
   console.log("init");
 
   //Déclaration des variables et push ds localstorage (mettre .value aps les getEltById car c'est cette valeur la qu'on veut et non toute les valeurs des balises)
+  //Le tout sous format JSON 
   let userName = document.getElementById("nom").value;
-  console.log(userName);
   let adressMail = document.getElementById("email").value;
   let mdp = document.getElementById("password_field").value;
-  let verfiPassword = document.getElementById("mdpVerif").value;
 
-  localStorage.setItem("name", userName);
-  localStorage.setItem("mail", adressMail);
-  localStorage.setItem("password", mdp);
-  localStorage.setItem("secondPassword", verfiPassword);
+  const profil = {
+      nameUser : userName,
+      email : adressMail,
+      passwordUser : mdp,
+      memoryType : "dinosaures",
+      memorySize : "little"
+  };
 
-  localStorage.setItem("name", JSON.stringify(userName));
-  localStorage.setItem("mail", JSON.stringify(adressMail));
-  localStorage.setItem("password", JSON.stringify(mdp));
+  let keyStart = "utilisateur de ";
+  let key = keyStart.concat(adressMail);
+  localStorage.setItem(key, JSON.stringify(profil));
 
-const storeIdData = localStorage.getItem("name");
-  if (storeIdData) {
-    const userObject= JSON.parse(storeIdData);
-    console.log(userObject);
-    console.log(userObject.mail);
+  //Verification email pr ne pas avoir de doublon, function ou pas function that is the question? 
+  
+  if (profil) {
+    let userArray = JSON.parse(profil);
+    let emailFound = userArray.some(profil => profil.email != adressMail);
+    console.log("yep adresse libre");
   } else {
-    console.log("Aucune donnée trouvée dans le localStorage")
+    console.log("nope");
   }
 
 }
-
-
-//Est ce que c'est utile ? pas certaine 
-// function connexion() {
-//   fetch("usersFiles.json")
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Erreur HTTP : " + response.status);
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//     });
-// }
