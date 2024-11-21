@@ -6,7 +6,6 @@ function init() {
   document
     .getElementById("btn_validation")
     .addEventListener("click", validation);
-  
 }
 
 function samePass() {
@@ -35,36 +34,54 @@ function testPass() {
   // TODO affecter le truc visuel qui dit ce qu'est le mdp faible
 }
 
+let isFound = false;
+
 function validation(event) {
   event.preventDefault(); //pour eviter que le btn Submit nous embete, ne pas oublier le "event" dans les ()
-  console.log("init");
 
   //Déclaration des variables et push ds localstorage (mettre .value aps les getEltById car c'est cette valeur la qu'on veut et non toute les valeurs des balises)
-  //Le tout sous format JSON 
+  //Le tout sous format JSON
   let userName = document.getElementById("nom").value;
   let adressMail = document.getElementById("email").value;
   let mdp = document.getElementById("password_field").value;
 
   const profil = {
-      nameUser : userName,
-      email : adressMail,
-      passwordUser : mdp,
-      memoryType : "dinosaures",
-      memorySize : "little"
+    nameUser: userName,
+    email: adressMail,
+    passwordUser: mdp,
+    memoryType: "dinosaures",
+    memorySize: "little",
   };
 
-  let keyStart = "utilisateur de ";
-  let key = keyStart.concat(adressMail);
-  localStorage.setItem(key, JSON.stringify(profil));
-
-  //Verification email pr ne pas avoir de doublon, function ou pas function that is the question? 
+  //Verification email pr ne pas avoir de doublon
   
-  if (profil) {
-    let userArray = JSON.parse(profil);
-    let emailFound = userArray.some(profil => profil.email != adressMail);
-    console.log("yep adresse libre");
-  } else {
-    console.log("nope");
-  }
+    let keyStart = "utilisateur de ";
+    let key = keyStart.concat(adressMail);
 
+    if (!profil) {
+      console.log("aucun profil correspondant");
+    } else {
+      localStorage.setItem(key, JSON.stringify(profil));
+    }
+
+    let storedProfil = localStorage.getItem(key);
+    
+    if (!storedProfil) {
+      console.log("profil non trouvé");
+    } else {
+      let userArray = JSON.parse(storedProfil);
+
+      if (userArray.email == adressMail) {
+        isFound = true;
+      }
+
+     //  let isFound = userArray.some(profil => profil.email === adressMail);
+      // let emailFound = userArray.some(isFound);
+      console.log(isFound)
+    if (isFound) {
+      console.log("adresse mail  déjà utilisé");
+    } else {
+      console.log("adresse libre");
+    }
+  }
 }

@@ -108,3 +108,27 @@ main{
     display:inline;
     padding:10px;
 }
+.row{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 18vh;
+    width: 100%;
+
+
+}
+
+.divCarte{
+
+    background-color: lightgray;
+    height: 100%;
+    width: 20VW ;
+
+
+}
+img{
+
+    height: 100%;
+    width: 100%;
+}
