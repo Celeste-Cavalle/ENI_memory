@@ -6,14 +6,29 @@ function init() {
 
     pickImgTab ();
 
-    document.getElementById('div1').addEventListener("click", clickCard);
+    for (let index = 0; index < 12; index++) {
+
+    document.getElementById('div'+(index+1)).addEventListener("click", clickCard);
+        
+}
 
 
 
 
 }
 
-function clickCard () {
+function clickCard (event) {
+
+const  eventCaller= event.target;
+
+console.log("CLICK")
+
+console.log(eventCaller.parentNode)
+
+let flipperLeDauphin = eventCaller.parentNode;
+
+flipperLeDauphin.classList.add('flipped');
+
 
 
 }
@@ -66,14 +81,17 @@ function imagesDsDiv () {
         
         imagesFront.setAttribute("src", "ressources/question.svg")
         
-        divParent.appendChild(imagesFront);
+        
         
         let imagesBack = document.createElement('img');
 
         imagesBack.setAttribute("src", tableImgDef[i])
+
+        imagesBack.classList.add('flipped');
         
         divParent.appendChild(imagesBack);
 
+        divParent.appendChild(imagesFront);
     }
 
 }
